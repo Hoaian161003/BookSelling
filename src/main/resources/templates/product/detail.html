@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title th:fragment="title">Product Detail</title>
+</head>
+
+<body>
+	<main th:fragment="main">
+		<div class="courses-area section-padding40 fix">
+    <div class="container">
+        <div class="courses-actives" id="slick-courses">
+            <!-- Single -->
+            <div class="properties pb-20">
+                <div class="properties__card">
+                    <div class="properties__img overlay1">
+                        <img th:src="@{|/assets/img/All/${item.image}|}" alt=""
+                             style="background-color: white;">
+                    </div>
+                    <div class="properties__caption">
+                        <ul>
+                            <li>Name: <b th:text="${item.name}"></b></li>
+                            <li>Price: <b th:text="${item.price}"></b></li>
+                            <li>Created: <b th:text="${item.createDate}"></b></li>
+                            <li>Available: <b th:text="${item.available?'Yes':'No'}"></b></li>
+                            <li>Category: <b th:text="${item.category.name}"></b></li>
+                            <li><a th:href="@{|/cart/add/${item.id}|}" class="border-btn border-btn2">Add To Cart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="courses-area section-padding40 fix">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section-tittle text-center mb-55">
+                    <h2>similar products</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <th:block th:each="p : ${item.category.products}">
+                <th:block th:if="${p != item}">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="properties pb-20 course-item">
+                            <div class="properties__card">
+                                <div class="properties__img overlay1">
+                                    <a th:href="@{|/product/detail/${p.id}|}">
+                                        <img th:src="@{|/assets/img/All/${p.image}|}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="properties__caption">
+                                <h3><a th:href="@{|/product/detail/${p.id}|}" th:text="${p.name}"></a></h3>
+                                <div class="properties__footer d-flex justify-content-between align-items-center">
+                                    <div class="restaurant-name">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half"></i>
+                                        </div>
+                                        <p><span>(4.5)</span> based on 120</p>
+                                    </div>
+                                    <div class="price">
+                                        $<span th:text="${p.price}"></span>
+                                    </div>
+                                </div>
+                                <a th:href="@{|/cart/add/${p.id}|}" class="border-btn border-btn2">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </th:block>
+            </th:block>
+        </div>
+    </div>
+</div>
+
+	</main>
+</body>
+
+</html>

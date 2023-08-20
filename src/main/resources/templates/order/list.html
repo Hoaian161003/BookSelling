@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title th:fragment="title">Quản lý đơn hàng</title>
+</head>
+
+<body>
+<main th:fragment="main">
+    <div class="container">
+        <h2 class="my-4">Quản lý đơn hàng</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Id</th>
+                        <th>Shipping Address</th>
+                        <th>Created Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="o, s: ${user.orders}">
+                        <td th:text="${s.count}"></td>
+                        <td th:text="${o.id}"></td>
+                        <td th:text="${o.address}"></td>
+                        <td th:text="${o.createDate}"></td>
+                        <td>
+                            <a th:href="@{|/order/detail/${o.id}|}" class="btn btn-primary">Detail</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:fragment="title">Thanh toán</title>
+</head>
+
+<body>
+
+<main th:fragment="main">
+    <div class="container">
+        <h2 class="my-4">Thanh toán</h2>
+        <form th:object="${order}" action="/order/checkout" method="post">
+            <ul>
+                <li>Username: <input th:field="*{account.username}" readonly/></li>
+                <li>Shipping Address: <input th:field="*{address}"></li>
+                <li>Create Date: <input th:field="*{createDate}" readonly></li>
+                <li><button type="submit" class="btn btn-success">Purchase</button></li>
+            </ul>
+        </form>
+    </div>
+</main>
+
+<div th:insert="~{/cart/view::table}"></div>
+
+</body>
+
+</html>

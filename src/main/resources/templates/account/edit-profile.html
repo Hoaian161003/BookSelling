@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:fragment="title">Cập nhật tài khoản</title>
+</head>
+
+<body>
+    <main th:fragment="main">
+    <div class="account-update">
+        <h2>Cập nhật tài khoản</h2>
+        <form action="/account/edit-profile" method="post" enctype="multipart/form-data">
+            <div th:if="${message}" class="message">
+                <p th:text="${message}"></p>
+            </div>
+            <ul th:object="${account}">
+                <li>
+                    <label for="username">Username:</label>
+                    <input id="username" th:field="*{username}" readonly>
+                </li>
+                <li>
+                    <label for="fullname">Fullname:</label>
+                    <input id="fullname" th:field="*{fullname}">
+                </li>
+                <li>
+                    <label for="email">Email Address:</label>
+                    <input id="email" th:field="*{email}">
+                </li>
+                <li>
+                    <label for="photo">Photo:</label>
+                    <input id="photo" th:field="*{photo}">
+                </li>
+                <li>
+                    <button type="submit">Update</button>
+                </li>
+                <li>
+                    <input th:field="*{password}" type="hidden">
+                </li>
+            </ul>
+        </form>
+    </div>
+</main>
+</body>
+
+</html>
