@@ -58,7 +58,6 @@ public class OrderController {
 			detail.setOrder(order);
 			Product product = productService.findById(item.getId());
 			detail.setProduct(product);
-			// insert order detail
 			orderDetailService.create(detail);
 		});
 		return "redirect:/order/list";

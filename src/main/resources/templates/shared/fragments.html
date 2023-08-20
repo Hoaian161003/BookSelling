@@ -10,29 +10,10 @@
 <title th:fragment="title">Fragments</title>
 
 
-<!-- Các thẻ khác trong head -->
-
-<!--
-							<script th:if="${addToCartSuccess}">
-    showNotification([[${notificationMessage}]]);
-</script>
--->
 </head>
 
 <body>
 	<header th:fragment="header">
-		<!-- 
-    	    	<a href="/">Home</a> ::
-    	<a href="/home/about">About</a> ::
-    	<a href="/home/contact">Contact</a> ::
-    	<a href="/home/feedback">Feedback</a> ::
-    	<a href="/home/faq">Faqs</a>
-    	<span style="border:1px red solid">	
-	    	<a href="/cart/view">View Cart</a>: 
-	    	<b th:text="${@cart.totalCount}">100</b> items x 
-	    	$<b  th:text="${@cart.totalAmount}">250</b>
-	    </span>
-	     -->
 
 		<div class="header-area header-transparent">
 			<div class="main-header ">
@@ -105,10 +86,8 @@
 		</div>
 
 		<main>
-			<!--? slider Area Start-->
 			<section class="slider-area ">
 				<div class="slider-active">
-					<!-- Single Slider -->
 					<div class="single-slider slider-height d-flex align-items-center">
 						<div class="container">
 							<div class="row">
@@ -129,7 +108,6 @@
 					</div>
 				</div>
 			</section>
-			<!-- ? services-area -->
 			<div class="services-area">
 				<div class="container">
 					<div class="row justify-content-sm-center">
@@ -174,7 +152,6 @@
 	</header>
 
 	<nav th:fragment="menu">
-		<!--  -->
 		<div class="courses-area section-padding40 fix">
 			<div class="container">
 				<div class="row">
@@ -231,41 +208,15 @@
 
 
 	<nav th:fragment="account">
-		<!-- 
-		<ul>
-			<th:block th:if="${#request.remoteUser}">
-				<a href="/account/forgot-password">Forgot Password</a> ::
-            <a href="/account/edit-profile">Edit Profile</a>::
-            <a href="/account/change-password">Change Password</a> ::
-           <a href="/security/logout">Sign Out</a> ::
-            
-           <a href="/order/list">My Orders</a>
-
-				<a
-					th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}"
-					href="/index.html">: Admin</a>
-
-			</th:block>
-			<th:block th:unless="${#request.remoteUser}">
-				<a href="/security/login/form">Sign In</a> ::
-             <a href="/order/list">My Orders</a> ::
-             <a href="/account/sign-up">Sign Up</a>
-			</th:block>
-		</ul>
-		<nav th:if="${#request.remoteUser}">
-			<a href="#"> Welcome [[${#request.remoteUser}]]</a>
-		</nav>
-		-->
+		
 		<footer>
 			<div class="footer-wrappper footer-bg">
-				<!-- Footer Start-->
 				<div class="footer-area footer-padding">
 					<div class="container">
 						<div class="row justify-content-between">
 							<div class="col-xl-4 col-lg-5 col-md-4 col-sm-6">
 								<div class="single-footer-caption mb-50">
 									<div class="single-footer-caption mb-30">
-										<!-- logo -->
 										<div class="footer-logo mb-25">
 											<a href="index.html"><img
 												src="/assets/img/logo/logo2_footer.png" alt=""></a>
@@ -276,7 +227,6 @@
 													go into the machine.</p>
 											</div>
 										</div>
-										<!-- social -->
 										<div class="footer-social">
 											<a href="#"><i class="fab fa-twitter"></i></a> <a
 												href="https://www.facebook.com/nnha03"><i
@@ -331,7 +281,6 @@
 						</div>
 					</div>
 				</div>
-				<!-- footer-bottom area -->
 				<div class="footer-bottom-area">
 					<div class="container">
 						<div class="footer-border">
@@ -339,7 +288,6 @@
 								<div class="col-xl-12 ">
 									<div class="footer-copy-right text-center">
 										<p>
-											<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 											Copyright &copy;
 											<script>
 												document.write(new Date()
@@ -348,7 +296,6 @@
 											All rights reserved | This template is made with <i
 												class="fa fa-heart" aria-hidden="true"></i> by <a
 												href="https://colorlib.com" target="_blank">Colorlib</a>
-											<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 										</p>
 									</div>
 								</div>
@@ -356,10 +303,8 @@
 						</div>
 					</div>
 				</div>
-				<!-- Footer End-->
 			</div>
 		</footer>
-		<!-- Scroll Up -->
 		<div id="back-top">
 			<a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 		</div>
@@ -367,13 +312,7 @@
 
 
 	<div th:fragment="categories">
-		<!--  
-		<th:block th:each="c, s: ${@categoryService.findAll()}">
-			<a th:href="@{|/product/list-by-category/${c.id}|}"
-				th:text="${c.name}"></a>
-			<th:block th:unless="${s.last}">|</th:block>
-		</th:block>
-		-->
+
 		<div class="topic-area section-padding40">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -384,7 +323,6 @@
 					</div>
 				</div>
 				<div class="row">
-					<!-- Thymeleaf loop starts here -->
 					<div class="col-lg-3 col-md-4 col-sm-6"
 						th:each="c, s: ${@categoryService.findAll()}">
 						<div class="single-topic text-center mb-30">
@@ -401,7 +339,6 @@
 							</div>
 						</div>
 					</div>
-					<!-- Thymeleaf loop ends here -->
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-xl-12">

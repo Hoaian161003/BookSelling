@@ -26,11 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 		
-//		BCryptPasswordEncoder pe = getBCryptPasswordEncoder();
-//		auth.inMemoryAuthentication()
-//			.withUser("user1").password(pe.encode("pas1")).roles("USER").and()
-//			.withUser("user2").password(pe.encode("pas2")).roles("SUPER").and()
-//			.withUser("user3").password(pe.encode("pas3")).roles("ADMIN", "SUPER");
 	}
 	
 	@Override
@@ -38,13 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		
 		
-//		http.authorizeRequests()
-//			.antMatchers("/order/**").authenticated()
-//			.antMatchers("/ctrl/url2").hasRole("USER")
-//			.antMatchers("/ctrl/url3").hasRole("ADMIN")
-//			.antMatchers("/ctrl/url4").hasAnyRole("ADMIN", "SUPER")
-//			.anyRequest().permitAll();
-//		
+	
 		http.authorizeRequests()
 		.antMatchers("/account/change-password",
 				"/account/edit-profile",
@@ -57,7 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.exceptionHandling()
 			.accessDeniedPage("/security/access/denied");
 		
-		//http.httpBasic();
 		
 		http.formLogin()
 			.loginPage("/security/login/form")

@@ -15,26 +15,7 @@ public class HomeController {
 	
 	@Autowired
 	ProductService productService;
-//	@RequestMapping("/home/index")
-//	public String index() {
-//		return "home/index";
-//	}
-//	@RequestMapping("/home/about")
-//	public String about() {
-//		return "home/about";
-//	}
-//	@RequestMapping("/home/contact")
-//	public String contact() {
-//		return "home/contact";
-//	}
-//	@RequestMapping("/home/feedback")
-//	public String feedback() {
-//		return "home/feedback";
-//	}
-//	@RequestMapping("/home/faq")
-//	public String faq() {
-//		return "home/faq";
-//	}
+	
 	@RequestMapping("/")
 	public String index(Model model) {
 		List<Product> list = productService.findAll();

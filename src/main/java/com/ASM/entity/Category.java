@@ -22,12 +22,7 @@ import lombok.Data;
 @Entity 
 @Table(name = "Categories")
 public class Category{
-//	@Id
-//	Integer id;
-//	String name;
-//
-//	@OneToMany(mappedBy = "category")
-//	List<Product> products;
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

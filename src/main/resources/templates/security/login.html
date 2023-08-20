@@ -28,19 +28,7 @@
 </head>
 
 <body>
-<!--  
-    <h2>Login form</h2>
-    
-    <form th:action="@{/security/login}" method="post">
-        <i th:text="${message}"></i>
-        <ul>
-            <li>Username: <input name="username"></li>
-            <li>Password: <input name="password" type="password"></li>
-            <li><input name="remember-me" type="checkbox"> Remember?</li>
-        </ul>
-        <button>Sign In</button>
-    </form>
-    -->
+
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -51,18 +39,15 @@
             </div>
         </div>
     </div>
-    <!-- Preloader Start-->
 
 
     <main class="login-body" data-vide-bg="/assets/img/4.mp4">
-        <!-- Login Admin -->
         <form class="form-default" th:action="@{/security/login}" method="POST">
         	        
         	
         
             
             <div class="login-form">
-                <!-- logo-login -->
                 <div class="logo-login">
                     <a href="/"><img src="/assets/img/logo/loder.png" alt=""></a>
                 </div>
@@ -83,13 +68,10 @@
                     <input type="submit" name="submit" value="login">
                 </div>
                 
-                <!-- Forget Password -->
                 <a href="/account/forgot-password" class="forget">Forget Password</a>
-                <!-- Forget Password -->
                 <a href="/account/sign-up"  class="forget">Sign up</a>
             </div>
         </form>
-        <!-- /end login form -->
     </main>
 
 

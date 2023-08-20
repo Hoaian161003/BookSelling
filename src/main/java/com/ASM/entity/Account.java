@@ -24,18 +24,7 @@ import lombok.Data;
 @Entity 
 @Table(name = "Accounts")
 public class Account  implements Serializable{
-//	@Id
-//	String username;
-//	String password;
-//	String fullname;
-//	String email;
-//	String photo;
-//	
-//	@OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
-//	List<Authority> authorities;
-//	
-//	@OneToMany(mappedBy = "account")
-//	List<Order> orders;
+
 	@Id
 	String username;
 	String password;

@@ -40,37 +40,11 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/acc.css">
 
-<!-- Các thẻ khác trong head -->
 <style>
 html, body {
 	scroll-behavior: smooth;
 }
 </style>
-
-<script>
-	function scrollToFeaturedCourses() {
-		var element = document.getElementById("featured-courses");
-		element.scrollIntoView({
-			behavior : "smooth",
-			block : "start",
-			inline : "nearest"
-		});
-	}
-</script>
-
-
-
-<!--
-<script>
-    // Hiển thị thông báo và tự động ẩn sau 2 giây
-    setTimeout(function () {
-        var notification = document.getElementById('notification');
-        if (notification) {
-            notification.style.display = 'none';
-        }
-    }, 2000);
-</script>
-  -->
 
 
 </head>
@@ -78,20 +52,13 @@ html, body {
 <body>
 	<div th:replace="~{/shared/fragments::header}"></div>
 	<hr>
-	<!--  
-	<div th:if="${addToCartSuccess}" id="notification" class="notification">
-    <span th:text="${notificationMessage}"></span>
-</div>
--->
 	<div th:replace="~{/shared/fragments::categories}"></div>
 	<hr>
 	<div th:replace="~{/shared/fragments::menu}"></div>
 	<main th:replace="${body}"></main>
 	<hr>
 	<div th:replace="~{/shared/fragments::account}"></div>
-	<!--  
-    <main th:replace="${body}"></main>
-    -->
+
 	<script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
 	<!-- Jquery, Popper, Bootstrap -->
 	<script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>

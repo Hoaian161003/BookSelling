@@ -31,22 +31,7 @@
 </head>
 
 <body>
-	<!--
-        <h2>Đăng ký thành viên</h2>
-        <form th:object="${account}" action="/account/sign-up" method="post" enctype="multipart/form-data">
-	        <i th:text="${message}"></i>
-	        <ul>
-	            <li>Username: <input th:field="*{username}"></li>
-	            <li>Password: <input th:field="*{password}"></li>
-	            <li>Confirm: <input name="confirm"></li>
-	            <li>Fullname: <input th:field="*{fullname}"></li>
-	            <li>Email Address: <input th:field="*{email}"></li>
-	            <li>Photo: <input th:field="*{photo}"></li>
-	            <li><button>Sign Up</button></li>
-	        </ul>
-	    </form>
-     -->
-
+	
 	<div id="preloader-active">
 		<div
 			class="preloader d-flex align-items-center justify-content-center">
@@ -58,19 +43,15 @@
 			</div>
 		</div>
 	</div>
-	<!-- Preloader Start-->
 
 
-	<!-- Register -->
 
 	<main class="login-body" data-vide-bg="/assets/img/4.mp4">
-		<!-- Login Admin -->
 
 		<form class="form-default" action="/account/sign-up" method="post" th:object="${account}" enctype="multipart/form-data">
 
 				
 				<div class="login-form">
-					<!-- logo-login -->
 					<div class="logo-login">
 						<a href="/"><img src="/assets/img/logo/loder.png"
 							alt=""></a>

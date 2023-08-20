@@ -17,47 +17,12 @@ import com.ASM.cart.CartService;
 
 @Controller
 public class CartController {
-//	@Autowired
-//	CartService cartService;
-//	
-//	@GetMapping("/cart/view")
-//	public String view() {
-//		return "cart/view";
-//	}
-//	
-//	@RequestMapping("/cart/add/{id}")
-//	public String add(@PathVariable("id") Integer id) {
-//		cartService.add(id);
-//		return "cart/view";
-//	}
-//	
-//	@RequestMapping("/cart/remove/{id}")
-//	public String remove(@PathVariable("id") Integer id) {
-//		cartService.remove(id);
-//		return "cart/view";
-//	}
-//	
-//	@RequestMapping("/cart/clear")
-//	public String clear() {
-//		cartService.clear();
-//		return "cart/view";
-//	}
-//	
-//	@RequestMapping("/cart/update")
-//	public String update(HttpServletRequest request) {
-//		cartService.getItems().forEach(item -> {
-//			Integer id = item.getId();
-//			int qty = Integer.parseInt(request.getParameter("qty_" + id));
-//			cartService.update(id, qty);
-//		});
-//		return "cart/view";
-//	}
 	@Autowired
 	CartService cartService;
 	
 	@GetMapping("/cart/view")
 	public String view() {
-		
+		// Test to 
 //		 Boolean addToCartSuccess = (Boolean) request.getSession().getAttribute("addToCartSuccess");
 //		    if (addToCartSuccess != null && addToCartSuccess) {
 //		        model.addAttribute("addToCartSuccess", true);
@@ -68,11 +33,7 @@ public class CartController {
 		return "cart/view";
 	}
 	
-//	@RequestMapping("/cart/add/{id}")
-//	public String add(@PathVariable("id") Integer id) {
-//		cartService.add(id);
-//		return "cart/view";
-//	}
+
 	@RequestMapping("/cart/add/{id}")
 	public String add(@PathVariable("id") Integer id, HttpServletRequest request) {
 	    cartService.add(id);
