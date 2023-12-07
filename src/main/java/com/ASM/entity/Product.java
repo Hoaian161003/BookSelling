@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 
-@Data
+
 @Entity
 @Table(name = "Products")
 public class Product{
@@ -31,6 +31,9 @@ public class Product{
 	Integer id;
 	String name;
 	String image;
+	String nxb;
+	String tg;
+	String headimage;
 	Double price;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Createdate")
@@ -39,8 +42,116 @@ public class Product{
 	@ManyToOne
 	@JoinColumn(name = "Categoryid")
 	Category category;
-
+	String gioithieu;
+	Integer soluong;
 	@JsonIgnore
 	@OneToMany(mappedBy = "product")
-	List<OrderDetail> orderDetails;	
+	List<OrderDetail> orderDetails;
+	public Product() {
+		super();
+	}
+	
+	public Product(Integer id, String name, String image, String nxb, String tg, String headimage, Double price,
+			Date createDate, Boolean available, Category category, String gioithieu, Integer soluong,
+			List<OrderDetail> orderDetails) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.image = image;
+		this.nxb = nxb;
+		this.tg = tg;
+		this.headimage = headimage;
+		this.price = price;
+		this.createDate = createDate;
+		this.available = available;
+		this.category = category;
+		this.gioithieu = gioithieu;
+		this.soluong = soluong;
+		this.orderDetails = orderDetails;
+	}
+
+	public Integer getSoluong() {
+		return soluong;
+	}
+
+	public void setSoluong(Integer soluong) {
+		this.soluong = soluong;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getNxb() {
+		return nxb;
+	}
+	public void setNxb(String nxb) {
+		this.nxb = nxb;
+	}
+	public String getTg() {
+		return tg;
+	}
+	public void setTg(String tg) {
+		this.tg = tg;
+	}
+	public String getHeadimage() {
+		return headimage;
+	}
+	public void setHeadimage(String headimage) {
+		this.headimage = headimage;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public Boolean getAvailable() {
+		return available;
+	}
+	public void setAvailable(Boolean available) {
+		this.available = available;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public String getGioithieu() {
+		return gioithieu;
+	}
+	public void setGioithieu(String gioithieu) {
+		this.gioithieu = gioithieu;
+	}
+	public List<OrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+	public void setOrderDetails(List<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
+	}	
+	
+	
+	
+	
 }

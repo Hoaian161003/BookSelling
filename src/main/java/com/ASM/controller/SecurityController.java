@@ -26,7 +26,7 @@ public class SecurityController {
 		model.addAttribute("items", list);
 		
 		model.addAttribute("message", "Đăng nhập thành công");
-		return "home/index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/security/login/failure")

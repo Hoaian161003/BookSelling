@@ -57,34 +57,35 @@
 							alt=""></a>
 					</div>
 	
-					<h2>Registration Here</h2>
-					
+					<h2>Đăng ký</h2>
+					<h2><a href="/"><img src="/assets/img/logo/loder.png"
+							alt=""></a>Home</h2>
 					<i th:text="${message}" style="color:red;"></i>
 					<ul>
 						<li>
 							<div class="form-input">
-								<label>Username</label> <input th:field="*{username}"
+								<label>Tên đăng nhập</label> <input th:field="*{username}"
 									placeholder="Username">
 							</div>
 						</li>
 
 						<li>
 							<div class="form-input">
-								<label>Password</label> <input th:field="*{password}"
+								<label>Mật khẩu</label> <input type="password" th:field="*{password}"
 									placeholder="Password">
 							</div>
 						</li>
 
 						<li>
 							<div class="form-input">
-								<label>Confirm</label> <input name="confirm"
+								<label>Xác nhận mật khẩu</label> <input type="password" name="confirm"
 									placeholder="Confirm">
 							</div>
 						</li>
 
 						<li>
 							<div class="form-input">
-								<label>Fullname</label> <input th:field="*{fullname}"
+								<label>Tên đầy đủ</label> <input th:field="*{fullname}"
 									placeholder="Fullname">
 							</div>
 						</li>
@@ -99,26 +100,41 @@
 
 						<li>
 							<div class="form-input">
-								<label>Photo</label> <input th:field="*{photo}"
-									placeholder="Photo">
+								<label>Hình</label> <input type="file" name="file" >
 							</div>
 
 						</li>
-
-						<li>
-							<div class="form-input pt-30">
-								<input type="submit" name="submit" value="login">
+							<li>
+							<div>
+								<img th:src="*{'data:realCaptcha/jpg;base64, ' +realCaptcha}" />
 							</div>
 
+						</li>
+						<li>
+								<label style="color :yellow">Capcha</label>
+								
+								<input type="hidden" th:field="*{hiddenCaptcha}"/>
+								
+								<input type="text" th:field="*{captcha}" class="form-control"/>
+								
+							</li>
+									
+						<li>
+						
+							<div class="form-input">
+								<input type="submit" name="submit" value="SignUp">
+							</div>
+	
 						</li>
 					</ul>
-				<a href="/account/forgot-password" class="forget">Forget Password</a>
-                <!-- Forget Password -->
-                <a href="/security/login/form"  class="forget">Sign in</a>
+			
                
 				</div>
+				
 		</form>
-		<!-- /end login form -->
+		<div th:if="${message!=null}" class="card-footer bg-info text-white"> 
+		<span class="alert alert-danger" th:text="${message}"></span>
+		</div>
 	</main>
 
 	<script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>

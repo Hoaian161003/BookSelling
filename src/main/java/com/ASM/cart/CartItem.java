@@ -1,11 +1,8 @@
 package com.ASM.cart;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import com.ASM.entity.Product;
 
-@NoArgsConstructor
-@Data
 public class CartItem {
 	Integer id;
 	String name;
@@ -19,4 +16,41 @@ public class CartItem {
 		this.name = product.getName();
 		this.price = product.getPrice();
 	}
+	public CartItem() {
+		super();
+	}
+	public CartItem(Integer id, String name, double price, int quantity) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	
+	
 }

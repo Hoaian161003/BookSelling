@@ -16,35 +16,33 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Amount</th>
+                        <th></th>
+                        <th>Tên</th>
+                        <th>Giá tiền</th>
+                        <th>Số lượng</th>
+                        <th>Tổng tiền</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="item, rowStat: ${@cart.items}">
                         <td th:text="${rowStat.count}"></td>
-                        <td th:text="${item.id}">Id</td>
                         <td th:text="${item.name}">Name</td>
-                        <td th:text="${item.price}">Price</td>
+                        <td th:text="${item.price}" >Price</td>
                         <td>
-                            <input th:name="@{|qty_${item.id}|}" type="number" th:value="${item.quantity}" class="form-control">
+                            <input th:name="@{|qty_${item.id}|}" type="number" th:value="${item.quantity}"  max="500" min="1" class="form-control">
                         </td>
                         <td th:text="${item.amount}">Amount</td>
                         <td>
-                            <a th:href="@{|/cart/remove/${item.id}|}" class="btn btn-danger">Remove</a>
+                            <a th:href="@{|/cart/remove/${item.id}|}" class="btn btn-danger">Xóa</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary">Update Quantity</button>
-                <a href="/cart/clear#featured-courses" class="btn btn-danger">Clear Cart</a>
-                <a href="/order/checkout#featured-courses" class="btn btn-success">Checkout</a>
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <a href="/cart/clear#featured-courses" class="btn btn-danger">Dọn giỏ hàng</a>
+                <a href="/order/checkout#featured-courses"  class="btn btn-success">Thanh toán</a>
             </div>
         </form>
     </div>

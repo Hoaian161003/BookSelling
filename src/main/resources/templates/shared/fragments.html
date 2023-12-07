@@ -15,16 +15,17 @@
 <body>
 	<header th:fragment="header">
 
+
 		<div class="header-area header-transparent">
 			<div class="main-header ">
-				<div class="header-bottom  header-sticky">
+				<div class="header-bottom  header-sticky ">
 					<div class="container-fluid">
 						<div class="row align-items-center">
 							<!-- Logo -->
 							<div class="col-xl-2 col-lg-2">
 
 								<div class="logo">
-									<a href="/"><img src="/assets/img/logo/logo.png" alt=""></a>
+									<a href="/"><img src="/assets/img/logo/huh.png" alt=""></a>
 								</div>
 							</div>
 							<div class="col-xl-10 col-lg-10">
@@ -34,42 +35,57 @@
 									<div class="main-menu d-none d-lg-block">
 										<nav>
 											<ul id="navigation">
-												<li class="active"><a href="/">Home</a></li>
-												<li><a href="/home/about#featured-courses"
-													onclick="scrollToFeaturedCourses()">About</a></li>
-												<li><a href="/home/contact#featured-courses"
-													onclick="scrollToFeaturedCourses()">Contact</a></li>
-												<li><a href="/home/feedback#featured-courses"
-													onclick="scrollToFeaturedCourses()">Feedback</a></li>
-												<li><a href="/home/faq#featured-courses"
-													onclick="scrollToFeaturedCourses()">Faqs</a></li>
-												<li><a href="/cart/view#featured-courses"
-													onclick="scrollToFeaturedCourses()">Cart</a></li>
+												<li>
+													<form action="/product/search">
+														<div class="box">
+															<input type="text" name="keyword" th:value="${keyword}"
+																placeholder="Bạn muốn tìm gì?" />
+															<i class="fas fa-search"></i>
 
-												<li th:if="${#request.remoteUser}"><a href="#">Welcome
-														<strong>[[${#request.remoteUser}]] </strong>
+														</div>
+													</form>
+												</li>
+
+
+												<li class="active"><a href="/">Trang chủ</a></li>
+												<li><a href="/home/about#featured-courses"
+													onclick="scrollToFeaturedCourses()">Về chúng tôi</a></li>
+
+												<li>
+												<div class="icon-cart">
+												<a href="/cart/view#featured-courses" 
+													onclick="scrollToFeaturedCourses()">Giỏ hàng</a> 
+													<span th:text="${@cart.totalCount}">0</span>
+													 </div>
+													</li>
+
+
+
+												<li th:if="${#request.remoteUser}"><a href="#">Xin
+														chào <strong>[[${#request.remoteUser}]] </strong>
 												</a>
 													<ul class="submenu">
 
-														<li><a href="/account/edit-profile#featured-courses">Edit
-																Profile</a></li>
-														<li><a href="/order/list">My Orders</a></li>
-														<li><a href="/account/change-password">Change
-																Password</a></li>
-														<li><a href="/security/logout">Sign Out</a></li>
+														<li><a href="/account/edit-profile#featured-courses">Chỉnh
+																sửa cá nhân</a></li>
+														<li><a href="/order/list">Lịch sử đặt</a></li>
+														<li><a href="/account/change-password">Đổi mật
+																khẩu</a></li>
+														<li><a href="/security/logout">Thoát</a></li>
 														<li
 															th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
-															<a href="/index.html">Admin</a>
+															<a href="/admin">Admin</a>
 														</li>
 													</ul>
 												<li th:unless="${#request.remoteUser}"
 													class="button-header margin-left"><a
-													href="/security/login/form" class="btn">Sign In</a></li>
+													href="/security/login/form" class="btn">Đăng nhập</a></li>
 
 												<li th:unless="${#request.remoteUser}" class="button-header">
-													<a href="/account/sign-up" class="btn btn3">Sign Up</a>
+													<a href="/account/sign-up" class="btn btn3">Đăng ký</a>
 												</li>
 											</ul>
+
 										</nav>
 
 									</div>
@@ -84,7 +100,6 @@
 				</div>
 			</div>
 		</div>
-
 		<main>
 			<section class="slider-area ">
 				<div class="slider-active">
@@ -94,13 +109,13 @@
 								<div class="col-xl-6 col-lg-7 col-md-12">
 									<div class="hero__caption">
 										<h1 data-animation="fadeInLeft" data-delay="0.2s">
-											Online Stuff<br> buying
+											Chào mừng<br> quý khách
 										</h1>
-										<p data-animation="fadeInLeft" data-delay="0.4s">Everything
-											you wanted for youseft and wanted for your house right here.</p>
+										<p data-animation="fadeInLeft" data-delay="0.4s">Những gì
+											bạn cần cho tủ sách của bạn đều được bán ở đây.</p>
 										<a class="btn hero-btn" data-animation="fadeInLeft"
 											data-delay="0.7s" href="/#featured-courses"
-											onclick="scrollToFeaturedCourses()">BUYING RIGHT NOW</a>
+											onclick="scrollToFeaturedCourses()">MUA NGAY</a>
 									</div>
 								</div>
 							</div>
@@ -117,8 +132,8 @@
 									<img src="/assets/img/icon/icon1.svg" alt="">
 								</div>
 								<div class="features-caption">
-									<h3>Diverse items.</h3>
-									<p>More than hundreds of stuff will satisfy you.</p>
+									<h3>Về mặt hàng</h3>
+									<p>Cập nhật nhiều loại sách mới, với giá cả cạnh tranh.</p>
 								</div>
 							</div>
 						</div>
@@ -128,8 +143,8 @@
 									<img src="/assets/img/icon/icon2.svg" alt="">
 								</div>
 								<div class="features-caption">
-									<h3>Expert instructors</h3>
-									<p>A team of staff that provides support 24/7.</p>
+									<h3>Về thông tin</h3>
+									<p>Tổng hợp nhiều loại sách với nhiều chủ đề khác nhau</p>
 								</div>
 							</div>
 						</div>
@@ -139,9 +154,8 @@
 									<img src="/assets/img/icon/icon3.svg" alt="">
 								</div>
 								<div class="features-caption">
-									<h3>Refund</h3>
-									<p>Return and refund within 48h if goods have issues or are
-										not as described.</p>
+									<h3>Về thời gian</h3>
+									<p>Tìm kiếm nhanh chóng, tối ưu hết mức, dễ dàng sử dụng</p>
 								</div>
 							</div>
 						</div>
@@ -149,66 +163,17 @@
 				</div>
 			</div>
 		</main>
+
 	</header>
 
-	<nav th:fragment="menu">
-		<div class="courses-area section-padding40 fix">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-12">
-						<div class="section-tittle text-center mb-55">
-							<h2 id="featured-courses">Various types of products</h2>
-						</div>
-					</div>
-				</div>
 
-				<div class="row">
-					<th:block th:each="p, rowStat : ${items}">
-						<div class="col-lg-4 col-md-6">
-							<div class="properties pb-20 course-item">
-								<div class="properties__card">
-									<div class="properties__img overlay1">
-										<a th:href="@{|/product/detail/${p.id}|}"> <img
-											th:src="@{|/assets/img/All/${p.image}|}" alt=""
-											style="width: 100%; height: 100%;">
-										</a>
-									</div>
-									<div class="properties__caption">
-										<h3>
-											<a th:href="@{|/product/detail/${p.id}|}" th:text="${p.name}"></a>
-										</h3>
-										<div
-											class="properties__footer d-flex justify-content-between align-items-center">
-											<div class="restaurant-name">
-												<div class="rating">
-													<i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-														class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-														class="fas fa-star-half"></i>
-												</div>
-												<p>
-													<span>(4.5)</span> based on 120
-												</p>
-											</div>
-											<div class="price">
-												$<span th:text="${p.price}"></span>
-											</div>
-										</div>
-										<a th:href="@{|/cart/add/${p.id}|}"
-											class="border-btn border-btn2">Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</th:block>
-				</div>
-			</div>
-		</div>
-	</nav>
+
+
 
 
 
 	<nav th:fragment="account">
-		
+
 		<footer>
 			<div class="footer-wrappper footer-bg">
 				<div class="footer-area footer-padding">
@@ -218,13 +183,13 @@
 								<div class="single-footer-caption mb-50">
 									<div class="single-footer-caption mb-30">
 										<div class="footer-logo mb-25">
-											<a href="index.html"><img
-												src="/assets/img/logo/logo2_footer.png" alt=""></a>
+											<a href="index.html"><img src="/assets/img/logo/huh.png"
+												alt=""></a>
 										</div>
 										<div class="footer-tittle">
 											<div class="footer-pera">
-												<p>The automated process starts as soon as your clothes
-													go into the machine.</p>
+												<p>Liên hệ với chúng tôi thông qua một trong các phương
+													thức dưới đây.</p>
 											</div>
 										</div>
 										<div class="footer-social">
@@ -288,14 +253,13 @@
 								<div class="col-xl-12 ">
 									<div class="footer-copy-right text-center">
 										<p>
-											Copyright &copy;
+											HPBOOK &copy;
 											<script>
 												document.write(new Date()
 														.getFullYear());
 											</script>
-											All rights reserved | This template is made with <i
-												class="fa fa-heart" aria-hidden="true"></i> by <a
-												href="https://colorlib.com" target="_blank">Colorlib</a>
+											dự án tốt nghiệp || thuộc HPBOOK
+
 										</p>
 									</div>
 								</div>
@@ -311,47 +275,9 @@
 	</nav>
 
 
-	<div th:fragment="categories">
-
-		<div class="topic-area section-padding40">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-xl-7 col-lg-8">
-						<div class="section-tittle text-center mb-55">
-							<h2>Explore more categories</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-3 col-md-4 col-sm-6"
-						th:each="c, s: ${@categoryService.findAll()}">
-						<div class="single-topic text-center mb-30">
-							<div class="topic-img">
-								<img src="/assets/img/gallery/gia.jpg" alt="">
-								<div class="topic-content-box">
-									<div class="topic-content">
-										<h3>
-											<a th:href="@{|/product/list-by-category/${c.id}|}"
-												th:text="${c.name}"></a>
-										</h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-xl-12">
-						<div class="section-tittle text-center mt-20">
-							<a href="#" class="border-btn">View More Subjects</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 
-	</div>
+
 
 
 

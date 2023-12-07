@@ -1,6 +1,7 @@
 package com.ASM.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,16 @@ public class AccountService {
 		dao.save(account);
 	}
 
-	public Account findByUsername(String username) {
-		return dao.findById(username).get();
-	}
+	 public Optional<Account> findByUsername(String username) {
+	        return dao.findByUsername(username);
+	    }
+
+	 public Optional<Account> findByEmail(String email) {
+	        return dao.findByemail(email);
+	    }
+	 public Optional<Account> findByResetToken(String resetToken) {
+	        return dao.findByResetToken(resetToken);
+	    }
 	
 	public Account findById(String username) {
 		return dao.findById(username).get();

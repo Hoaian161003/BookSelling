@@ -22,14 +22,7 @@ public class CartController {
 	
 	@GetMapping("/cart/view")
 	public String view() {
-		// Test to 
-//		 Boolean addToCartSuccess = (Boolean) request.getSession().getAttribute("addToCartSuccess");
-//		    if (addToCartSuccess != null && addToCartSuccess) {
-//		        model.addAttribute("addToCartSuccess", true);
-//		        model.addAttribute("notificationMessage", "Đặt hàng thành công");
-//
-//		        request.getSession().removeAttribute("addToCartSuccess");
-//		    }
+		
 		return "cart/view";
 	}
 	

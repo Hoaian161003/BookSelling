@@ -39,7 +39,7 @@ public class OrderController {
 	@GetMapping("/order/checkout")
 	public String checkout(@ModelAttribute("order") Order order, Authentication auth) {
 		String username = auth.getName();
-		Account account = accountService.findByUsername(username);
+		Account account = accountService.findById(username);
 		order.setCreateDate(new Date());
 		order.setAccount(account);
 		return "order/checkout";
@@ -57,16 +57,23 @@ public class OrderController {
 			detail.setQuantity(item.getQuantity());
 			detail.setOrder(order);
 			Product product = productService.findById(item.getId());
+			if (item.getQuantity()<= product.getSoluong()&& product.getSoluong()>0) {
+				int sl = product.getSoluong()- item.getQuantity();
+				product.setSoluong(sl);
+			}
+			
 			detail.setProduct(product);
 			orderDetailService.create(detail);
+			productService.update(product);
 		});
+		cartService.clear();
 		return "redirect:/order/list";
 	}
 	
 	@RequestMapping("/order/list")
 	public String list(Model model, Authentication auth) {
 		String username = auth.getName();
-		Account account = accountService.findByUsername(username);
+		Account account = accountService.findById(username);
 		model.addAttribute("user", account);
 		return "order/list";
 	}

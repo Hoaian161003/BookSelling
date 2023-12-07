@@ -26,6 +26,7 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Price</th>
+                        <th>image</th>
                         <th>Quantity</th>
                         <th>Amount</th>
                     </tr>
@@ -36,6 +37,9 @@
                         <td th:text="${d.product.id}"></td>
                         <td th:text="${d.product.name}"></td>
                         <td th:text="${d.price}"></td>
+                                                <td >
+                        <img  style="width:50px;" th:src="@{|/assets/img/All/${d.product.image}|}">
+                        </td>
                         <td th:name="@{|qty_${d.product.id}|}" th:text="${d.quantity}">
 							
                         </td>

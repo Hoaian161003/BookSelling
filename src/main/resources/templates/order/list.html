@@ -17,21 +17,19 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Id</th>
-                        <th>Shipping Address</th>
-                        <th>Created Date</th>
+                        <th></th>
+                        <th>Địa chỉ</th>
+                        <th>Ngày đặt hàng</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="o, s: ${user.orders}">
                         <td th:text="${s.count}"></td>
-                        <td th:text="${o.id}"></td>
                         <td th:text="${o.address}"></td>
                         <td th:text="${o.createDate}"></td>
                         <td>
-                            <a th:href="@{|/order/detail/${o.id}|}" class="btn btn-primary">Detail</a>
+                            <a th:href="@{|/order/detail/${o.id}|}" class="btn btn-primary">Xem chi tiết</a>
                         </td>
                     </tr>
                 </tbody>
